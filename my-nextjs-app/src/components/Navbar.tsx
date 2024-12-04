@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import CustomButton from "./CustomButton";
+// import CustomButton from "./CustomButton";
+import Menu from "./Menu";
 const Navbar = () => {
   return (
     <header className="w-full absolute z-10">
@@ -15,11 +16,13 @@ const Navbar = () => {
             className="object-contain"
           ></Image>
         </Link>
-        <CustomButton
-          title="Sign In"
+        {/* <CustomButton
+          title="Menu"
           btnType="button"
           containerStyle="text-primary-blue rounded-full bg-white border-4 border-blue-600 min-w-[130px]"
-        ></CustomButton>
+        ></CustomButton> */}
+
+        <Menu></Menu>
       </nav>
     </header>
   );

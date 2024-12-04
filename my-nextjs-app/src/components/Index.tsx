@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import CustomButton from "./CustomButton";
 
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -53,35 +54,71 @@ const Index = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Image Classifier</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} accept="image/*" />
-        <button type="submit" disabled={loading}>
+    <div className="max-w-3xl mx-left p-6 space-y-6 mt-20">
+      <h1 className="text-3xl font-bold text-left text-black">
+        Poultry Disease Image Classifier
+      </h1>
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-start space-y-4"
+      >
+        {selectedFile && (
+          <div className="mb-4">
+            <h2 className="text-lg font-semibold text-gray-700">
+              Image Preview:
+            </h2>
+            <img
+              src={URL.createObjectURL(selectedFile)} // This will create a temporary URL for the selected file
+              alt="Preview"
+              className="rounded-lg shadow-lg mt-2 w-full max-w-xs object-contain"
+              style={{ maxHeight: "300px" }} // Limit the height for better layout control
+            />
+          </div>
+        )}
+
+        <input
+          type="file"
+          onChange={handleFileChange}
+          accept="image/*"
+          className="border-2 border-gray-300 rounded-lg p-2 text-sm max-w-xs"
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className={`bg-primary-blue text-white rounded-full py-3 px-6 font-semibold transition duration-300 ease-in-out transform ${
+            loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+          } w-auto text-left`}
+        >
           {loading ? "Uploading..." : "Upload and Predict"}
         </button>
       </form>
 
       {prediction && (
-        <div style={{ marginTop: "20px" }}>
-          <h2>
-            Prediction:
+        <div className="mt-8 text-center space-y-4">
+          <h2 className="text-xl font-medium text-gray-700">
+            Prediction:{" "}
             {prediction === "1"
-              ? " Unhealthy "
+              ? "Unhealthy"
               : prediction === "2"
-              ? " Healthy"
-              : " Loading... "}
-            with the probability of {prob * 100}%
+              ? "Healthy"
+              : "Loading..."}{" "}
+            with a probability of {prob * 100}%
           </h2>
 
-          <Image
-            src={`http://127.0.0.1:5000/${imagePath}`}
-            alt="Uploaded"
-            onLoad={onImageLoad}
-            style={{ marginTop: "20px" }}
-            width={imgDimensions.width}
-            height={imgDimensions.height}
-          />
+          {imagePath && (
+            <div>
+              <Image
+                src={`http://127.0.0.1:5000/${imagePath}`}
+                alt="Uploaded Image"
+                onLoad={onImageLoad}
+                width={imgDimensions.width}
+                height={imgDimensions.height}
+                className="mx-auto rounded-lg shadow-xl mt-6"
+              />
+            </div>
+          )}
         </div>
       )}
     </div>

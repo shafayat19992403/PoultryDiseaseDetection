@@ -6,3 +6,4 @@ test_dataset.csv
 train_dataset.csv
 /uploads
 poultry_with_transformers.ipynb
+/node_modules
