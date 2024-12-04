@@ -4,3 +4,5 @@ resnet50_model.pth
 /Dataset
 test_dataset.csv
 train_dataset.csv
+/uploads
+poultry_with_transformers.ipynb
