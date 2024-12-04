@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import CustomButton from "./CustomButton";
 const Hero = () => {
@@ -12,12 +13,15 @@ const Hero = () => {
         <p className="hero__subtitle">
           Find out your poultrys health just here!!
         </p>
-        <CustomButton
-          title="Try Us Here"
-          btnType="submit"
-          containerStyle="bg-primary-blue text-white rounded-full mt-10"
-          handleClick={handleScroll}
-        ></CustomButton>
+
+        <Link href="/predict">
+          <CustomButton
+            title="Try Us Here"
+            btnType="submit"
+            containerStyle="bg-primary-blue text-white rounded-full mt-10"
+            handleClick={handleScroll}
+          />
+        </Link>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

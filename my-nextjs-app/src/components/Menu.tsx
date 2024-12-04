@@ -48,6 +48,14 @@ const FlyoutLink = ({ children, href }) => {
               <ul className="space-y-6">
                 <li>
                   <Link
+                    href="/"
+                    className="text-white font-bold text-xl hover:text-blue-100 transition duration-200 ease-in-out"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/dataset"
                     className="text-white font-bold text-xl hover:text-blue-100 transition duration-200 ease-in-out"
                   >
