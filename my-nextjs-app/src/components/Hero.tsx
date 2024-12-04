@@ -14,6 +14,7 @@ const Hero = () => {
         </p>
         <CustomButton
           title="Try Us Here"
+          btnType="submit"
           containerStyle="bg-primary-blue text-white rounded-full mt-10"
           handleClick={handleScroll}
         ></CustomButton>
