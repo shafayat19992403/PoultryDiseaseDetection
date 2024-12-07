@@ -11,7 +11,9 @@ export default function RootLayout({
       <body className="relative">
         <Navbar />
         {children}
-        <Footer />
+        <footer className="flex-shrink-0 py-28 mt-10">
+          <Footer />
+        </footer>
       </body>
     </html>
   );

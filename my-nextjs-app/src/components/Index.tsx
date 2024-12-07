@@ -4,13 +4,13 @@ import axios from "axios";
 import Image from "next/image";
 import CustomButton from "./CustomButton";
 
-const Index = () => {
+const Index = ({ setPrediction, setProb }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [prediction, setPrediction] = useState("");
+  // const [prediction, setPrediction] = useState("");
   const [imagePath, setImagePath] = useState("");
   const [loading, setLoading] = useState(false);
   const [imgDimensions, setImgDimensions] = useState({ width: 0, height: 0 });
-  const [prob, setProb] = useState(0.0);
+  // const [prob, setProb] = useState(0.0);
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -94,7 +94,7 @@ const Index = () => {
           {loading ? "Uploading..." : "Upload and Predict"}
         </button>
       </form>
-
+      {/* 
       {prediction && (
         <div className="mt-8 text-center space-y-4">
           <h2 className="text-xl font-medium text-gray-700">
@@ -120,7 +120,7 @@ const Index = () => {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
