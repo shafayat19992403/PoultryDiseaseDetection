@@ -42,11 +42,11 @@
 
 "use client";
 import React, { useState } from "react";
-import Index from "@/components/Index";
+// import Index from "@/components/Index";
 
 const Page = () => {
-  const [prediction, setPrediction] = useState("");
-  const [prob, setProb] = useState(0.0);
+  const [prediction] = useState("");
+  const [prob] = useState(0.0);
 
   return (
     <div className="hero">
@@ -55,7 +55,7 @@ const Page = () => {
         <p className="hero__subtitle">
           Upload your chicken&apos;s fecel image to predict health.
         </p>
-        <Index setPrediction={setPrediction} setProb={setProb} />
+        {/* <Index setPrediction={setPrediction} setProb={setProb} /> */}
       </div>
       <div className="flex-1 pt-56 padding-x">
         {prediction && (
