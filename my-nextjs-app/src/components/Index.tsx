@@ -131,7 +131,6 @@
 import { useState } from "react";
 import axios from "axios";
 import Image from "next/image"; // Using Next.js Image component
-import CustomButton from "./CustomButton";
 
 const Index = ({ setPrediction, setProb }) => {
   const [selectedFile, setSelectedFile] = useState(null);
